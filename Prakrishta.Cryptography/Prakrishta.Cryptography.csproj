@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\MyDataLayer\MyDataLayer.sln.licenseheader" Link="MyDataLayer.sln.licenseheader" />
+  </ItemGroup>
+
+</Project>
