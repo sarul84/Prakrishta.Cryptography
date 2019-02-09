@@ -7,7 +7,7 @@
 // <summary>Contract that defines encryption and decryption</summary>
 //-----------------------------------------------------------------------------------
 
-namespace Prakrishta.Cryptography
+namespace Prakrishta.Cryptography.Core
 {
     using System.Collections.Generic;
 
@@ -54,6 +54,6 @@ namespace Prakrishta.Cryptography
         /// </summary>
         /// <param name="cipherText">Cipher text</param>
         /// <returns>Encoded string</returns>
-        IEnumerable<byte> GetIvBytes(string cipherText);
+        IEnumerable<byte> GetInitialVectorBytes(string cipherText);
     }
 }

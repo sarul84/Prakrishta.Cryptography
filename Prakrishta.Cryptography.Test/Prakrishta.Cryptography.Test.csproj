@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Prakrishta.Cryptography\Prakrishta.Cryptography.csproj" />
+    <ProjectReference Include="..\Prakrishta.Cryptography.Core\Prakrishta.Cryptography.Core.csproj" />
   </ItemGroup>
 
 </Project>

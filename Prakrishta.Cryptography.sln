@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.271
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prakrishta.Cryptography", "Prakrishta.Cryptography\Prakrishta.Cryptography.csproj", "{9A631EEA-1A97-4395-96B0-EF778D73AE92}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Prakrishta.Cryptography.Core", "Prakrishta.Cryptography.Core\Prakrishta.Cryptography.Core.csproj", "{9A631EEA-1A97-4395-96B0-EF778D73AE92}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prakrishta.Cryptography.Test", "Prakrishta.Cryptography.Test\Prakrishta.Cryptography.Test.csproj", "{E621642C-EAD0-40E0-8D51-98776A5512F9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Prakrishta.Cryptography.Test", "Prakrishta.Cryptography.Test\Prakrishta.Cryptography.Test.csproj", "{E621642C-EAD0-40E0-8D51-98776A5512F9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
