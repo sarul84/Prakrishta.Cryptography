@@ -20,11 +20,6 @@ namespace Prakrishta.Cryptography.Core
     public abstract class CryptoBase
     {
         /// <summary>
-        /// Holds block size constant
-        /// </summary>
-        protected const int BlockSize = 128;
-
-        /// <summary>
         /// Initializes a new instance of <see cref="CryptoBase"/> class.
         /// </summary>
         /// <param name="cipherMode">Cipher mode</param>
@@ -69,7 +64,7 @@ namespace Prakrishta.Cryptography.Core
         /// <summary>
         /// Gets initialization vector length
         /// </summary>
-        protected int IvLength => BlockSize / 8;
+        protected int IvLength => CryptoEngineConstants.BlockSize / 8;
 
         /// <inheritdoc />
         public IEnumerable<byte> GetSaltBytes(string cipherText)
@@ -113,14 +108,10 @@ namespace Prakrishta.Cryptography.Core
         /// <returns></returns>
         private protected byte[] GenerateBitsOfRandomEntropy(string byteType)
         {
-            int arrayLength = 8;
+            int arrayLength = this.IvLength;
             if (byteType == CryptoEngineConstants.Salt)
             {
-                arrayLength = this.KeySize / 8;
-            }
-            else
-            {
-                arrayLength = BlockSize / 8;
+                arrayLength = this.SaltLength;
             }
 
             var randomBytes = new byte[arrayLength];

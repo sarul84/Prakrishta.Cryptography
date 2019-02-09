@@ -38,5 +38,15 @@ namespace Prakrishta.Cryptography.Core
         /// Holds constant value that denotes key interval value
         /// </summary>
         public const int KeyInterval = 64;
+
+        /// <summary>
+        /// Holds Derivation Iterations value
+        /// </summary>
+        public const int DerivationIterations = 50000;
+
+        /// <summary>
+        /// Holds block size constant
+        /// </summary>
+        public const int BlockSize = 128;
     }
 }

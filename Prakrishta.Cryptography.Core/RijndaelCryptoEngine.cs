@@ -26,7 +26,7 @@ namespace Prakrishta.Cryptography.Core
         /// Initializes a new instance of <see cref="RijndaelCryptoEngine"/> class.
         /// </summary>
         public RijndaelCryptoEngine()
-            : this(128)
+            : this(CryptoEngineConstants.MinKeySize)
         {
 
         }
@@ -47,7 +47,7 @@ namespace Prakrishta.Cryptography.Core
         /// <param name="paddingMode">Padding mode</param>
         /// <param name="keySize">Key Size</param>
         public RijndaelCryptoEngine(CipherMode cipherMode, PaddingMode paddingMode, int keySize)
-            : this(cipherMode, paddingMode, keySize, 50000)
+            : this(cipherMode, paddingMode, keySize, CryptoEngineConstants.DerivationIterations)
         {
         }
 
@@ -83,7 +83,7 @@ namespace Prakrishta.Cryptography.Core
                 var keyBytes = password.GetBytes(this.SaltLength);
                 using (var symmetricKey = new RijndaelManaged())
                 {
-                    symmetricKey.BlockSize = BlockSize;
+                    symmetricKey.BlockSize = CryptoEngineConstants.BlockSize;
                     symmetricKey.Mode = this.CipherMode;
                     symmetricKey.Padding = this.PaddingMode;
                     using (var decryptor = symmetricKey.CreateDecryptor(keyBytes, ivStringBytes))
@@ -121,7 +121,7 @@ namespace Prakrishta.Cryptography.Core
                 var keyBytes = password.GetBytes(this.SaltLength);
                 using (var symmetricKey = new RijndaelManaged())
                 {
-                    symmetricKey.BlockSize = BlockSize;
+                    symmetricKey.BlockSize = CryptoEngineConstants.BlockSize;
                     symmetricKey.Mode = this.CipherMode;
                     symmetricKey.Padding = this.PaddingMode;
                     using (var encryptor = symmetricKey.CreateEncryptor(keyBytes, ivBytes))

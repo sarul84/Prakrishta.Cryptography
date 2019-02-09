@@ -25,7 +25,7 @@ namespace Prakrishta.Cryptography.Core
         /// Initializes a new instance of <see cref="AesCryptoEngine"/> class.
         /// </summary>
         public AesCryptoEngine()
-            : this(128)
+            : this(CryptoEngineConstants.MinKeySize)
         {
         }
 
@@ -45,7 +45,7 @@ namespace Prakrishta.Cryptography.Core
         /// <param name="paddingMode">Padding mode</param>
         /// <param name="keySize">Key size</param>
         public AesCryptoEngine(CipherMode cipherMode, PaddingMode paddingMode, int keySize)
-            : this(cipherMode, paddingMode, keySize, 50000)
+            : this(cipherMode, paddingMode, keySize, CryptoEngineConstants.DerivationIterations)
         {
         }
 
@@ -81,7 +81,7 @@ namespace Prakrishta.Cryptography.Core
                 using (var symmetricKey = Aes.Create())
                 {
                     symmetricKey.KeySize = this.KeySize;
-                    symmetricKey.BlockSize = BlockSize;
+                    symmetricKey.BlockSize = CryptoEngineConstants.BlockSize;
                     symmetricKey.Mode = this.CipherMode;
                     symmetricKey.Padding = this.PaddingMode;
                     using (var decryptor = symmetricKey.CreateDecryptor(keyBytes, ivStringBytes))
@@ -120,7 +120,7 @@ namespace Prakrishta.Cryptography.Core
                 using (var symmetricKey = Aes.Create())
                 {
                     symmetricKey.KeySize = this.KeySize;
-                    symmetricKey.BlockSize = BlockSize;
+                    symmetricKey.BlockSize = CryptoEngineConstants.BlockSize;
                     symmetricKey.Mode = this.CipherMode;
                     symmetricKey.Padding = this.PaddingMode;
                     using (var encryptor = symmetricKey.CreateEncryptor(keyBytes, ivBytes))
