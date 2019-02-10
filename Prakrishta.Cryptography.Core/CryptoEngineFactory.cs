@@ -7,23 +7,25 @@
 // <summary>Factory method class that creates Crypto Engines</summary>
 //-----------------------------------------------------------------------------------
 
+using System;
+
 namespace Prakrishta.Cryptography.Core
 {
     /// <summary>
     /// Class that implements ICryptoEngineFactory interface
     /// </summary>
-    public class CryptoEngineFactory : ICryptoEngineFactory
+    public class CryptoEngineFactory
     {
-        public ICryptoEngine GetCryptoEngine(CryptoAlgorithm cryptoAlgorithm)
+        public static ICryptoEngine GetCryptoEngine(CryptoAlgorithm cryptoAlgorithm, params object[] constructorArguments)
         {
             ICryptoEngine cryptoEngine = null;
-            switch(cryptoAlgorithm)
+            switch (cryptoAlgorithm)
             {
                 case CryptoAlgorithm.RijndaelManaged:
-                    cryptoEngine = new RijndaelCryptoEngine();
+                    cryptoEngine = (ICryptoEngine)Activator.CreateInstance(typeof(RijndaelCryptoEngine), constructorArguments);
                     break;
                 case CryptoAlgorithm.Aes:
-                    cryptoEngine = new AesCryptoEngine();
+                    cryptoEngine = (ICryptoEngine)Activator.CreateInstance(typeof(AesCryptoEngine), constructorArguments);
                     break;
             }
             return cryptoEngine;

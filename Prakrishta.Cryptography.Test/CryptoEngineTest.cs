@@ -112,5 +112,17 @@ namespace Prakrishta.Cryptography.Test
             //Assert
             Assert.AreEqual(plaintText, decipherText, "Both algorithms work differe");
         }
+
+        [TestMethod]
+        [DataRow(CryptoAlgorithm.RijndaelManaged, 128)]
+        [DataRow(CryptoAlgorithm.Aes, 192)]
+        public void SimpleFactory_Test(CryptoAlgorithm algorithm, int keySize)
+        {
+            //Arrange => Act
+            var cryptoEngine = CryptoEngineFactory.GetCryptoEngine(algorithm, keySize);
+
+            //Assert
+            Assert.IsNotNull(cryptoEngine, "Factory method didn't work");
+        }
     }
 }
